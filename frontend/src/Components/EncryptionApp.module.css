@@ -1,0 +1,159 @@
+/* General container styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  font-family: 'Poppins', sans-serif;
+  gap: 15px;
+  padding: 20px;
+}
+
+/* Input section styling */
+.main, .key, .output, .select {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.main input, .key input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+  outline: none;
+  color: #555;
+  font-size: 16px;
+  
+}
+.keyfield{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+.keyfield p{
+    background:black;
+    color:white;
+    padding:10px 2px;
+    align-items:center;
+    justify-content:center;
+}
+
+.main input:focus, .key input:focus {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}
+.error{
+    color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* Button styling */
+.btn {
+  display: flex;
+  justify-content: center;
+  gap: 130px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+.btn2{
+    background:red ;
+}
+.rightbtn {
+    display:flex;
+    justify-content: space-between;
+    gap:40px;
+    width: 50%;
+    margin-right: 20px;
+    
+
+}
+.leftbtn{
+    display:flex;
+    justify-content: space-between;
+    gap:40px;
+    width: 50%;
+    margin-right: 20px;
+}
+
+/* Output styling */
+.output input {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  width: 300px;
+  margin-top:10px;
+  height:50px;
+  
+}
+
+/* Algorithm selector styling */
+.select {
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.select label{
+    background:black;
+    color:white;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+}
+
+.select select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Headings */
+.main h1 {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .main, .key, .output, .select {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  button {
+    width: 100%;
+  }
+}
