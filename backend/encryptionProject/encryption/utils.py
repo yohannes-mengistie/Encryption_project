@@ -13,7 +13,6 @@ def expand_key(key, length):
 # one-time pad encryption / decryption
 
 def otp_encrypt(plain_text,key):
-    # generate random key
     if len(key) != len(plain_text):
         raise ValueError("Key length must much the length of the pliantext.")
     key_bytes = key.encode('utf-8')

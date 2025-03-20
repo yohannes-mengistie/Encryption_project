@@ -44,10 +44,11 @@ export const EncryptionApp = () => {
       return;
     }
     await decryptText({ text: inputDecrypt });
-    setTimeout(() =>{setDecryptionText("")},3000);
+    
   }
   return (
     <div className={styles.container}>
+      <h1 className={styles.welcome}>WELCOME TO ENCRYPTION ENVIRONMENT </h1>
       <div className={styles.main}>
         <div className={styles.encrypt}>
           <h1 >
@@ -102,7 +103,7 @@ export const EncryptionApp = () => {
           <option value={""}>...</option>
           <option value="AES">AES</option>
           <option value="OTP">OTP</option>
-          <option value="DES3">3DES</option>
+          <option value="DES3">DES3</option>
         </select>
       </div>
     </div>
