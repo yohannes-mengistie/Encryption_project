@@ -43,8 +43,6 @@ def unpad(text):
     return text[:-ord(text[-1])]
 
 def des3_encr(plain_text,key):
-    # if len(key) < 24:
-    #     return {'error':'Key must be at least 24 characters long'},None
     key = expand_key(key,24)
     key = key[:24]
     iv = os.urandom(8)
@@ -53,8 +51,6 @@ def des3_encr(plain_text,key):
     return base64.b64encode(iv + encrypted).decode(),key.hex()
 
 def des3_decrypt(encrypted_text,key):
-    # if len(key) < 24:
-    #     return {'error':'Key must be at least 24 characters long'}
     try:
         key = expand_key(key,24)
         key = key[:24]
@@ -69,8 +65,6 @@ def des3_decrypt(encrypted_text,key):
 # AES Encryption and Decryption
 
 def aes_encrypt(plain_tex,key):
-    # if len(key) < 32:
-    #     return {'error': 'Key must be at least 32 characters long'},None
     key = expand_key(key,32)
     key = key[:32]
     iv = os.urandom(16)
@@ -80,8 +74,6 @@ def aes_encrypt(plain_tex,key):
     return base64.b64encode(iv+encrypted).decode(),key.hex()
 
 def aes_decrypt(encrypted_text,key):
-    # if len(key) < 32:
-    #     return {'error': 'Key must be at least 32 characters long'}
     try:
         key = expand_key(key,32)
         key = key[:32]
