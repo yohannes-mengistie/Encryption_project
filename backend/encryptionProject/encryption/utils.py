@@ -10,6 +10,8 @@ import base64
 def expand_key(key, length):
     """Expand the user's key to a fixed-length secure key using SHA-256."""
     return hashlib.sha256(key.encode()).digest()[:length]
+
+
 # one-time pad encryption / decryption
 
 def otp_encrypt(plain_text,key):

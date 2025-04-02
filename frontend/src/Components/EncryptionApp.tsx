@@ -31,7 +31,7 @@ export const EncryptionApp = () => {
 
   const handleEncrypt = async () => {
     console.log("encrypt")
-    if(!inputEncrypt || !encryptionKey){
+    if (encryptionMethod != "RSA" && (!inputEncrypt || !encryptionKey)){
       alert("Please enter text and encryption key !");
       return;
     }
@@ -39,11 +39,16 @@ export const EncryptionApp = () => {
   };
 
   const handleDecrypt = async () => {
-    if(!inputDecrypt || !decryptionKey){
+    if(encryptionMethod != "RSA" && (!inputDecrypt || !decryptionKey)){
       alert("Please enter encrypted and decryption key !");
       return;
     }
+    else if(encryptionMethod != "RSA" && encryptionKey != decryptionKey){
+      alert("please enter the correct decryption key");
+      return;
+    }
     await decryptText({ text: inputDecrypt });
+    setTimeout(() => {setDecryptionText("")},1500);
     
   }
   return (
@@ -101,6 +106,7 @@ export const EncryptionApp = () => {
         <label className={styles.label}>Choose Algorithm:</label>
         <select value={encryptionMethod} onChange={(e) => setEncryptionAlgorithm(e.target.value)}>
           <option value={""}>...</option>
+          <option value="RSA">RSA</option>
           <option value="AES">AES</option>
           <option value="OTP">OTP</option>
           <option value="DES3">DES3</option>

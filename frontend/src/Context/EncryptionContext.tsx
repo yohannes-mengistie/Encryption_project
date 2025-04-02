@@ -26,7 +26,7 @@ const defaultValues: EncryptionContextType = {
     encryptionText: "",
     encryptionKey: "",
     decryptionKey: "",
-    encryptionMethod: "AES",
+    encryptionMethod: "",
     setEncryptionKey: () => {},
     setDecryptionKey: () => {},
     setDecryptionText:() => {},
