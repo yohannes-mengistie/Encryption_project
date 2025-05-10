@@ -1,4 +1,4 @@
-import React,{Children, createContext,useEffect,useState} from "react";
+import React,{createContext,useState} from "react";
 interface EncryptionProviderProps {
     children: React.ReactNode;
 }
@@ -47,12 +47,12 @@ export const EncryptionProvider = ({ children }: EncryptionProviderProps) =>{
     const [encryptionKey,setEncryptionKey] = useState<string>("");
     const [decryptionKey,setDecryptionKey] = useState<string>("");
     const [encryptionMethod,setEncryptionAlgorithm] = useState<string>("");
-    const [error,setError] = useState<string>("");  
+    // const [error,setError] = useState<string>("");  
     
 
     const encryptText = async ({ text }: EncryptTextParams): Promise<void> => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/encrypt/", {
+            const response = await fetch("https://localhost:8443/encrypt/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -81,7 +81,7 @@ export const EncryptionProvider = ({ children }: EncryptionProviderProps) =>{
     // decrypt text
     const decryptText = async({text}:EncryptTextParams): Promise<void> =>{
         try{
-            const response = await fetch("http://127.0.0.1:8000/decrypt/", {
+            const response = await fetch("https://localhost:8443/decrypt/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -95,7 +95,7 @@ export const EncryptionProvider = ({ children }: EncryptionProviderProps) =>{
             const data = await response.json()
             if (response.ok){
                 setDecryptionText(data.decrypted_message);
-                setError("")
+                // setError("")
             }
                 
             
@@ -104,7 +104,7 @@ export const EncryptionProvider = ({ children }: EncryptionProviderProps) =>{
         } catch(err){
             console.error("Decryption faild" , err);
             setDecryptionText("");
-            setError("Faild to decrypt message");
+            // setError("Faild to decrypt message");
         }
     };
 

@@ -6,7 +6,6 @@ export const EncryptionApp = () => {
   const {
     error,
     encryptionText,
-    setEncryptionText,
     decryptionText,
     setDecryptionText,
     encryptionKey,
@@ -109,7 +108,7 @@ export const EncryptionApp = () => {
           <option value="RSA">RSA</option>
           <option value="AES">AES</option>
           <option value="OTP">OTP</option>
-          <option value="DES3">DES3</option>
+          <option value="3DES">3DES</option>
         </select>
       </div>
     </div>
