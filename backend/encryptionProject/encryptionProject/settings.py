@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'encryption',
+    'sslserver',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +56,14 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    "https://localhost:8443",
+    
 ]
+
+
+
+# Security settings for HTTPS
+SECURE_SSL_REDIRECT = False  # Disable for development; enable in production
 
 
 ROOT_URLCONF = 'encryptionProject.urls'
@@ -128,7 +136,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

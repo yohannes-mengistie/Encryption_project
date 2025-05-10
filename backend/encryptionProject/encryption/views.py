@@ -29,7 +29,7 @@ def encrypt_message(request):
             if len(key) != len(message):
                     return Response({'error': 'Key length must match message length for OTP'}, status=400)
             encrypted,used_key = otp_encrypt(message,key)
-        elif algorithm == 'DES3':
+        elif algorithm == '3DES':
             encrypted,used_key = des3_encr(message,key)
         elif algorithm == 'AES':
             encrypted,used_key = aes_encrypt(message,key)
@@ -62,7 +62,7 @@ def decrypt_message(request):
         if algorithm == 'OTP':
             
             decrypted = otp_decrypt(encrypted_message, key)
-        elif algorithm == 'DES3':
+        elif algorithm == '3DES':
             decrypted = des3_decrypt(encrypted_message, key)
         elif algorithm == 'AES':
             decrypted = aes_decrypt(encrypted_message, key)
